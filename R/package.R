@@ -4,7 +4,7 @@
 #'
 #' @name UniversitatesPodcastData
 #' @docType package
-#' @import httr rvest ggplot2 stringr
+#' @import httr rvest ggplot2 stringr dplyr tidyr
 #' @exportPattern "^[[:alpha:]]+"
 #'
 NULL
@@ -14,6 +14,8 @@ library(httr)
 library(rvest)
 library(ggplot2)
 library(stringr)
+library(dplyr)
+library(tidyr)
 
 #' Extract interlocutor name from page content
 #'
@@ -51,7 +53,7 @@ extract_universities <- function(page_text) {
   universities_text <- page_html %>% 
     html_node(xpath = "//dt[text()='Университеты']/following-sibling::dd[1]") %>%
     html_text(trim = TRUE)
-  universities <- unlist(strsplit(universities_text, ",\s*"))  # Split by comma and trim spaces
+  universities <- unlist(strsplit(universities_text, ",\\s*"))  # Split by comma and trim spaces
   return(universities)
 }
 
@@ -75,11 +77,45 @@ extract_transcript <- function(page_text) {
 #' @return Data frame with timestamps and replies
 #' @export
 extract_interlocutor_replies <- function(transcript, interlocutor) {
-  pattern <- sprintf("(\\d{1,2}:\\d{2}:\\d{2}(?:\\.\\d{3})?) \[%s\] (.+)", interlocutor)
-  matches <- regmatches(transcript, gregexpr(pattern, transcript, perl = TRUE))[[1]]
-  timestamps <- gsub(pattern, "\\1", matches)
-  replies <- gsub(pattern, "\\2", matches)
-  return(data.frame(Timestamp = timestamps, Reply = replies, stringsAsFactors = FALSE))
+  pattern <- sprintf("\\[(\\d{1,2}:\\d{2}:\\d{2}(?:\\.\\d{3})?) — %s\\]\\s*(.*)", interlocutor)
+  matches <- str_match_all(transcript, pattern)[[1]]
+  
+  if (!is.null(matches) && nrow(matches) > 0) {
+    timestamps <- matches[, 2]
+    replies <- matches[, 3]
+    return(data.frame(Timestamp = timestamps, Reply = replies, stringsAsFactors = FALSE))
+  } else {
+    return(data.frame(Timestamp = character(0), Reply = character(0), stringsAsFactors = FALSE))
+  }
+}
+
+#' Extract announcement from page content
+#'
+#' @param page_text HTML content of the page
+#' @return Announcement text
+#' @export
+extract_announcement <- function(page_text) {
+  page_html <- read_html(page_text)
+  announcement <- page_html %>%
+    html_node(xpath = "//h2[@id='анонс']/following-sibling::*[not(self::h2)][1]") %>%
+    html_text(trim = TRUE)
+  return(announcement)
+}
+
+#' Build a frequency dictionary from transcripts
+#'
+#' @param data List of structured page data
+#' @param page_ids Vector of page IDs to include
+#' @return Data frame with words and their frequencies
+#' @export
+build_frequency_dictionary <- function(data, page_ids) {
+  transcripts <- unlist(lapply(page_ids, function(id) data[[id]]$transcript))
+  words <- unlist(strsplit(tolower(transcripts), "\\W+"))
+  words <- words[words != ""]
+  freq_table <- as.data.frame(table(words), stringsAsFactors = FALSE)
+  colnames(freq_table) <- c("Word", "Frequency")
+  freq_table <- freq_table %>% arrange(desc(Frequency))
+  return(freq_table)
 }
 
 #' Find pages by university name
@@ -115,37 +151,4 @@ plot_word_count_histogram <- function(word_counts) {
     theme_minimal() +
     labs(title = "Transcript Word Count", x = "Page", y = "Word Count") +
     theme(axis.text.x = element_text(angle = 90, hjust = 1))
-}
-
-#' Download webpages and store structured data
-#'
-#' @param base_url URL template with %s as a placeholder
-#' @param start Start index
-#' @param end End index
-#' @return List of structured data per page
-#' @export
-download_pages <- function(base_url, start, end) {
-  data <- list()
-  
-  for (i in start:end) {
-    url <- sprintf(base_url, sprintf("%02d", i))  # Forming URL with leading zeros
-    response <- GET(url)
-    
-    if (status_code(response) == 200) {
-      page_text <- content(response, as = "text")
-      data[[sprintf("%02d", i)]] <- list(
-        id = sprintf("%02d", i),
-        page_text = page_text,
-        interlocutor = extract_interlocutor(page_text),
-        specialty = extract_specialty(page_text),
-        universities = extract_universities(page_text),
-        transcript = extract_transcript(page_text)
-      )
-      message("Downloaded: ", url)
-    } else {
-      message("Error downloading: ", url)
-    }
-  }
-  
-  return(data)
 }
