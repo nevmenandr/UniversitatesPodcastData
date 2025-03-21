@@ -2,7 +2,7 @@
 
 # Universitates Podcast Data
 
-[![CRAN status](https://www.r-pkg.org/badges/version/UniversitatesPodcastData.png)](https://cran.r-project.org/package=UniversitatesPodcastData) [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%203%29-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-3.0.ru.html) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![CRAN status](https://www.r-pkg.org/badges/version/UniversitatesPodcastData.png)](https://cran.r-project.org/package=UniversitatesPodcastData) [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%203%29-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-3.0.ru.html) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX) [![Telegram](https://img.shields.io/badge/channel-on%20Telegram-2ba2d9.svg)](https://t.me/universitates_podcast)
 
 An R package for downloading, extracting, and analyzing interview transcripts from the [Universitates podcast series](https://nevmenandr.github.io/universitates/). It provides tools for data processing, searching, and visualization
 
