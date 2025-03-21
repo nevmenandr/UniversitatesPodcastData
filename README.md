@@ -24,7 +24,7 @@ Orekhov, Boris. 2025. *Universitates Podcast Data.* Version 1.0.0. https://githu
 
 (Orekhov 2024)
 
-### ГОСТ Р 7.0.5–2008 (автор-датировка, для онлайн-ресурсов)
+### ГОСТ Р 7.0.5–2008
 
 Орехов, Б. Universitates Podcast Data [Электронный ресурс] / Б. Орехов. – Версия 1.0.0. – 2025. – URL: https://github.com/nevmenandr/UniversitatesPodcastData (дата обращения: 21.03.2025).
 
