@@ -7,7 +7,7 @@ authors:
     orcid: "0000-0002-9099-0436"
 repository-code: "https://github.com/nevmenandr/UniversitatesPodcastData"
 version: "1.0.0"
-date-released: "2024-03-22"
+date-released: "2025-03-22"
 license: "GPL-3.0"
 doi: "10.5281/zenodo.XXXXXXX" 
 abstract: "An R package for downloading, extracting, and analyzing interview transcripts from the Universitates podcast series. It provides tools for data processing, searching, and visualization."
