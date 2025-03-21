@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this package, please cite it as follows:"
+title: "Universitates Podcast Data"
+authors:
+  - family-names: "Orekhov"
+    given-names: "Boris"
+    orcid: "0000-0002-9099-0436"
+repository-code: "https://github.com/nevmenandr/UniversitatesPodcastData"
+version: "1.0.0"
+date-released: "2024-03-22"
+license: "GPL-3.0"
+doi: "10.5281/zenodo.XXXXXXX" 
+abstract: "An R package for downloading, extracting, and analyzing interview transcripts from the Universitates podcast series. It provides tools for data processing, searching, and visualization."
+keywords:
+  - R
+  - data collection
+  - r package
+  - data processing
+  - web scraping
+  - text analysis
+  - podcast
+  - russian language
