@@ -1,0 +1,45 @@
+# R package build files
+*.Rproj
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# Ignoring compiled files
+*.o
+*.so
+*.dll
+
+# Ignoring package build outputs
+*.tar.gz
+*.zip
+
+# Ignoring generated documentation
+man/*.Rd
+
+# Ignoring test outputs
+tests/testthat/*.Rout*
+
+# Ignoring logs and temporary files
+*.log
+*.aux
+*.out
+*.toc
+*.tmp
+*.swp
+
+# Ignoring R build-related files
+.Rbuildignore
+.Rinstignore
+
+# Ignoring cache and dependencies
+__pycache__/
+*.pyc
+renv/
+renv.lock
+packrat/
+packrat.lock
+
+# Ignoring system files
+.DS_Store
+Thumbs.db
