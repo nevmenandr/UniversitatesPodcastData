@@ -1,0 +1,12 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^README\.md$
+^\.gitignore$
+^\.github/
+^tests$
+^vignettes$
+^data$
+^\.DS_Store$
+^Thumbs\.db$
+^renv$
+^packrat$
