@@ -18,7 +18,7 @@ An R package for downloading, extracting, and analyzing interview transcripts fr
 
 **Reference list entry:**
 
-Orekhov, Boris. 2024. *Universitates Podcast Data.* Version 1.0.0. https://github.com/nevmenandr/UniversitatesPodcastData.
+Orekhov, Boris. 2025. *Universitates Podcast Data.* Version 1.0.0. https://github.com/nevmenandr/UniversitatesPodcastData.
 
 **In-text citation:** 
 
@@ -26,15 +26,15 @@ Orekhov, Boris. 2024. *Universitates Podcast Data.* Version 1.0.0. https://githu
 
 ### ГОСТ Р 7.0.5–2008 (автор-датировка, для онлайн-ресурсов)
 
-Орехов, Б. Universitates Podcast Data [Электронный ресурс] / Б. Орехов. – Версия 1.0.0. – 2024. – URL: https://github.com/nevmenandr/UniversitatesPodcastData (дата обращения: 21.03.2024).
+Орехов, Б. Universitates Podcast Data [Электронный ресурс] / Б. Орехов. – Версия 1.0.0. – 2025. – URL: https://github.com/nevmenandr/UniversitatesPodcastData (дата обращения: 21.03.2025).
 
 ### BibTex
 
 ```latex
-@software{Orekhov_UniversitatesPodcastData_2024,
+@software{Orekhov_UniversitatesPodcastData_2025,
   author = {Boris Orekhov},
   title = {Universitates Podcast Data},
-  year = {2024},
+  year = {2025},
   version = {1.0.0},
   url = {https://github.com/nevmenandr/UniversitatesPodcastData},
   orcid = {0000-0002-9099-0436},
