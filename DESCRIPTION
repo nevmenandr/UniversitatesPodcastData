@@ -1,0 +1,18 @@
+Package: UniversitatesPodcastData
+Type: Package
+Title: Universitates Podcast Data
+Version: 1.0.0
+Authors@R: person("Boris", "Orekhov", email = "nevmenandr@gmail.com", role = c("aut", "cre"))
+Description: A package to download, extract, and process interview transcripts from the Universitates podcast series. It provides tools for data extraction, searching, and saving structured data.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    httr,
+    rvest,
+    ggplot2,
+    stringr,
+    dplyr,
+    tidyr,
+    jsonlite
+RoxygenNote: 7.2.3

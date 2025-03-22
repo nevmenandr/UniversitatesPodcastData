@@ -12,6 +12,96 @@ An R package for downloading, extracting, and analyzing interview transcripts fr
 * English CV: https://nevmenandr.github.io/homepage/
 * Full Russian lists and descriptions: http://nevmenandr.net/bo.php
 
+## Installation
+To install the package from CRAN (once submitted and approved):
+
+```r
+install.packages("UniversitatesPodcastData")
+```
+
+To install the development version from GitHub:
+
+```r
+# install.packages("devtools")  # Uncomment if devtools is not installed
+devtools::install_github("your-github-username/UniversitatesPodcastData")
+```
+
+## Functions
+
+### Downloading Webpages
+
+#### `download_podcast_pages(ids)`
+
+Downloads interview pages and extracts structured data.
+- **Parameters**: `ids` – a vector of page numbers.
+- **Returns**: A list containing extracted data.
+
+### Extracting Data
+
+#### `extract_podcast_date(page)`
+
+Extracts the publication date from a webpage.
+- **Parameters**: `page` – parsed HTML content.
+- **Returns**: A date string.
+
+#### `extract_interlocutor_name(page)`
+
+Extracts the interviewee's name.
+- **Returns**: A string containing the name.
+
+#### `extract_interlocutor_specialty(page)`
+
+Extracts the interviewee's specialty.
+- **Returns**: A string with the specialty.
+
+#### `extract_interlocutor_universities(page)`
+
+Extracts the universities associated with the interviewee.
+- **Returns**: A list of university names.
+
+### Saving Data
+
+#### `save_data_to_json(data, file)`
+
+Saves extracted data to a JSON file.
+- **Parameters**:  
+  - `data` – structured data to save.  
+  - `file` – output file path.
+
+### Searching and Filtering
+
+#### `find_pages_by_specialty(specialty, data)`
+
+Finds interview pages by specialty.
+- **Returns**: A vector of page numbers.
+
+#### `find_pages_by_university(university, data)`
+
+Finds interview pages by university.
+- **Returns**: A vector of page numbers.
+
+## Usage Example
+
+```r
+library(UniversitatesPodcastData)
+
+# Download and extract data for pages 1 and 2
+data <- download_podcast_pages(c(1, 2))
+
+# Save to JSON
+save_data_to_json(data, "podcast_data.json")
+
+# Find pages by specialty
+physics_pages <- find_pages_by_specialty("Physicist", data)
+
+# Find pages by university
+mit_pages <- find_pages_by_university("MIT", data)
+```
+
+## License
+
+This package is licensed under the GPL-3 license.
+
 ## Citation info
 
 ### Chicago Style (17th edition, Author-Date)
@@ -24,7 +114,7 @@ Orekhov, Boris. 2025. *Universitates Podcast Data.* Version 1.0.0. https://githu
 
 (Orekhov 2024)
 
-### ГОСТ Р 7.0.5–2008
+### ГОСТ Р 7.0.5–2008 (автор-датировка, для онлайн-ресурсов)
 
 Орехов, Б. Universitates Podcast Data [Электронный ресурс] / Б. Орехов. – Версия 1.0.0. – 2025. – URL: https://github.com/nevmenandr/UniversitatesPodcastData (дата обращения: 21.03.2025).
 

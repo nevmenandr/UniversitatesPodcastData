@@ -1,0 +1,56 @@
+---
+title: "Introduction to UniversitatesPodcastData"
+author: "Boris Orekhov"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to UniversitatesPodcastData}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Introduction
+
+The `UniversitatesPodcastData` package allows users to download, extract, and analyze interview transcripts from structured webpages. This vignette provides an overview of its functionality.
+
+## Installation
+
+To install the package from CRAN:
+```r
+install.packages("UniversitatesPodcastData")
+```
+
+To install the development version from GitHub:
+```r
+# install.packages("devtools")  # Uncomment if devtools is not installed
+devtools::install_github("your-github-username/UniversitatesPodcastData")
+```
+
+## Loading the Package
+
+```r
+library(UniversitatesPodcastData)
+```
+
+## Downloading Podcast Pages
+
+To download and process podcast pages, use the `download_podcast_pages()` function:
+
+```r
+data <- download_podcast_pages(c(1, 2))
+```
+
+This returns a list containing extracted data such as the interlocutor's name, specialty, universities, publication date, and full transcript.
+
+## Saving Data as JSON
+
+You can save the extracted data to a JSON file using:
+
+```r
+save_data_to_json(data, "podcast_data.json")
+```
+
+## Conclusion
+
+This vignette introduced the key functions of `UniversitatesPodcastData`. See other vignettes for more details on searching and filtering.
+

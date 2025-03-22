@@ -1,0 +1,51 @@
+---
+title: "Searching and Filtering Podcast Data"
+author: "Boris Orekhov"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Searching and Filtering Podcast Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Searching and Filtering Podcast Data
+
+This vignette explains how to search and filter podcast data using the `UniversitatesPodcastData` package.
+
+## Finding Interviews by Specialty
+
+To find interviews based on the interlocutor's specialty, use:
+
+```r
+physics_pages <- find_pages_by_specialty("Physicist", data)
+print(physics_pages)
+```
+
+## Finding Interviews by University
+
+To retrieve interviews of guests from a specific university:
+
+```r
+mit_pages <- find_pages_by_university("MIT", data)
+print(mit_pages)
+```
+
+## Example Workflow
+
+Here’s an example workflow using the package:
+
+```r
+data <- download_podcast_pages(c(1, 2, 3))
+
+# Find interviews with physicists
+physicists <- find_pages_by_specialty("Physicist", data)
+
+# Find interviews with guests from Harvard
+harvard_interviews <- find_pages_by_university("Harvard", data)
+```
+
+## Summary
+
+This vignette demonstrated how to efficiently filter and retrieve relevant podcast interviews.
+
