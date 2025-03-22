@@ -92,11 +92,15 @@ data <- download_podcast_pages(c(1, 2))
 save_data_to_json(data, "podcast_data.json")
 
 # Find pages by specialty
-physics_pages <- find_pages_by_specialty("Physicist", data)
+physics_pages <- find_pages_by_specialty("Кандидат исторических наук", data)
 
 # Find pages by university
-mit_pages <- find_pages_by_university("MIT", data)
+mit_pages <- find_pages_by_university("МГУ", data)
 ```
+
+## Usage in Russian
+
+[In Russian](./Usage-rus.md)
 
 ## License
 
