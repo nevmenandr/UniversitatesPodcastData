@@ -12,7 +12,7 @@ An R package for downloading, extracting, and analyzing interview transcripts fr
 * English CV: https://nevmenandr.github.io/homepage/
 * Full Russian lists and descriptions: http://nevmenandr.net/bo.php
 
-## Installation
+## 📥 Installation
 To install the package from CRAN (once submitted and approved):
 
 ```r
@@ -26,7 +26,7 @@ To install the development version from GitHub:
 devtools::install_github("your-github-username/UniversitatesPodcastData")
 ```
 
-## Functions
+## 🔧 Functions
 
 ### Downloading Webpages
 
@@ -36,7 +36,7 @@ Downloads interview pages and extracts structured data.
 - **Parameters**: `ids` – a vector of page numbers.
 - **Returns**: A list containing extracted data.
 
-### Extracting Data
+### 📊 Extracting Data
 
 #### `extract_podcast_date(page)`
 
@@ -49,17 +49,17 @@ Extracts the publication date from a webpage.
 Extracts the interviewee's name.
 - **Returns**: A string containing the name.
 
-#### `extract_interlocutor_specialty(page)`
+#### 🧑‍🔬 `extract_interlocutor_specialty(page)`
 
 Extracts the interviewee's specialty.
 - **Returns**: A string with the specialty.
 
-#### `extract_interlocutor_universities(page)`
+#### 🏛️ `extract_interlocutor_universities(page)`
 
 Extracts the universities associated with the interviewee.
 - **Returns**: A list of university names.
 
-### Saving Data
+### 💾 Saving Data
 
 #### `save_data_to_json(data, file)`
 
@@ -68,7 +68,7 @@ Saves extracted data to a JSON file.
   - `data` – structured data to save.  
   - `file` – output file path.
 
-### Searching and Filtering
+### 🔍 Searching and Filtering
 
 #### `find_pages_by_specialty(specialty, data)`
 
